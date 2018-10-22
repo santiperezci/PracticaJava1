@@ -1,0 +1,35 @@
+import java.lang.reflect.Array;
+
+public class Categorías {
+	int numCategorias;
+	Categoria [ ] nombresCategorias;
+	public Categorías() {
+		nombresCategorias =new Categoria[] {new Categoria("Alimentos","Al"),new Categoria("Moda","Mod"),new Categoria("Electrónica","El"),
+				new Categoria("Libros","lib")};
+		nombresCategorias[0].setNombresSubCategorias(new String[]{"Alimentos y bebidas", "productos eco", "bebidas alcohóloicas"});
+		nombresCategorias[1].setNombresSubCategorias(new String[] {"Mujer", "Hombre", "Bebé"});
+		nombresCategorias[2].setNombresSubCategorias(new String[] {"Fotografía", "Móviles", "Informática"});
+		nombresCategorias[3].setNombresSubCategorias(new String[] {"Electrónicos", "Infantiles", "Poesía"});
+		numCategorias=4;
+	}
+	public subCategorias encontrarSubCategoria(String idSubCat) {
+		subCategorias sc=null;
+		for(int i=0; i<numCategorias;i++) {
+			for(int j=0;j<nombresCategorias[i].numSubCategorias;j++) {
+				if(idSubCat.equals(nombresCategorias[i].nombresSubCategorias[j].getIdCat())) {
+				sc= nombresCategorias[i].nombresSubCategorias[j];
+				}
+			}
+		}
+		return sc;
+	}
+	public void listar() {
+		for(int i=0; i<numCategorias-1;i++) {
+			
+		nombresCategorias[i].getNombreCat();
+		for(int j=0;j<nombresCategorias[i].numSubCategorias-1;j++) {
+				nombresCategorias[i].nombresSubCategorias[j].getNombreSubCat();
+			}
+		}	
+	}
+}

@@ -1,0 +1,52 @@
+import java.io.FileReader;
+import java.util.Properties;
+
+public class User {
+protected String name;
+protected String email;
+protected String password;
+public void propiedades() {
+	try(FileReader reader =  new FileReader("config")) {
+        Properties properties = new Properties();
+        properties.load(reader);
+        String email = properties.getProperty("email");
+        String username = properties.getProperty("username");
+        String password = properties.getProperty("password");
+        
+        System.out.println(email);
+        System.out.println(username);
+        System.out.println(password);
+       }catch (Exception e) {;
+       e.printStackTrace();
+       }
+}
+public String getName(){
+	return name;
+}
+
+public String getEmail(){
+	return email;
+}
+
+public String getPassword(){
+	return password;
+}
+
+public void setName(String name){
+	this.name=name;
+}
+
+public void setEmail(String email){
+	this.email=email;
+}
+
+public void setPassword(String password){
+	this.password=password;
+}
+
+protected User (String Name, String Email, String Password){
+	name=Name;
+	email=Email;
+	password=Password;
+}
+}

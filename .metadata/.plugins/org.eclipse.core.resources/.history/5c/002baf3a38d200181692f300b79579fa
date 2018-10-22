@@ -1,0 +1,8 @@
+
+public class Users {
+	int numUsers;
+	User [] nombreUsers;
+	public Users () {
+		nombreUsers=new User[] {new User("Santiago", "santiperezci"), new User()}
+	}
+}

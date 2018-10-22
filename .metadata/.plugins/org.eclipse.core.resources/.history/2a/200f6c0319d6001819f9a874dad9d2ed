@@ -1,0 +1,43 @@
+import java.io.File;
+
+public class subCategorias {
+	private String idSubCat,nombreSubCategoria, nombrePadre;
+	String [] nombresProductos;
+	Producto []  Productos;
+	public subCategorias(String nombre, String id, String papi) {
+		
+		nombreSubCategoria=nombre;
+		idSubCat=id;
+		nombrePadre=papi;
+	}
+	public String getNombreSubCat() {
+		return nombreSubCategoria;
+	}
+	public String getIdCat() {
+		return idSubCat;
+	}
+	public String getNombrePadre() {
+		return nombrePadre;
+	}
+	public void setIdCat(String id) {
+		idSubCat=id;
+	}
+	public void setNombresProductos(String idSubCat) {
+		//System.arraycopy(nombresProds,0,nombresProductos,0,nombresProds.length);
+		try {
+		String path = new File(".").getCanonicalPath();
+		//System.out.println(path+ "\\productos\\" +idSubCat);
+		File dir = new File(path + "\\productos\\" +idSubCat);
+		String[] ficheros = dir.list();
+		if (ficheros == null)
+			  System.out.println("No hay ficheros en el directorio especificado");
+			else { 
+			  for (int x=0;x<ficheros.length;x++)
+			    System.out.println(ficheros[x]);
+			}
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
+}

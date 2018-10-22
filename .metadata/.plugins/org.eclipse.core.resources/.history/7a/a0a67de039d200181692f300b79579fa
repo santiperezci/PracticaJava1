@@ -1,0 +1,42 @@
+import java.io.FileReader;
+import java.util.Properties;
+
+public class Amazon {
+		static User usuario;
+	public static void main (String[] arg){
+		
+		System.out.println("Bienvenido a nuestra web");
+		propiedades();
+		Users usuarios=new Users();
+		if(usuarios.verificar(usuario)==false) {
+			System.out.println("Usuario no registrado");
+		}
+		else {
+			System.out.println("Bienvenido, éstos son dus datos");
+			System.out.println(usuario.email);
+	        System.out.println(usuario.name);
+	        System.out.println(usuario.password);
+		}
+		Categorías amazonia=new Categorías();
+		System.out.println("Gracias por comprar en Amazonia");
+		
+	}
+	public static void propiedades() {
+		try(FileReader reader =  new FileReader("config")) {
+	        Properties properties = new Properties();
+	        properties.load(reader);
+	        String email = properties.getProperty("email");
+	        String username = properties.getProperty("username");
+	        String password = properties.getProperty("password");
+	        if(email!=null && username!=null && password!=null) {
+	        	usuario=new User(username, email, password);
+	        	/*System.out.println(usuario.email);
+		        System.out.println(usuario.name);
+		        System.out.println(usuario.password);*/
+	        }
+	        
+	       }catch (Exception e) {;
+	       e.printStackTrace();
+	       }
+	}
+}

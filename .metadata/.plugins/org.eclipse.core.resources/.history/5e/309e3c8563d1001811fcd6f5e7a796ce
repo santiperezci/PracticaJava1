@@ -1,0 +1,35 @@
+
+public class Categoria {
+	private String idCat,nombreCategoria;
+	subCategorias [] nombresSubCategorias;
+	public Categoria() {
+		
+	}
+	public Categoria(String nombre, String id) {
+		nombreCategoria=nombre;
+		idCat=id;
+		
+	}
+	public String getNombreCat() {
+		return nombreCategoria;
+	}
+	public String getIdCat() {
+		return idCat;
+	}
+	public void setNombresSubCategorias(String [] nombresSCat) {
+		nombresSubCategorias=new subCategorias[nombresSCat.length];
+		for (int i=0; i<nombresSCat.length;i++) {
+			try {
+				nombresSubCategorias[i]=new subCategorias(nombresSCat[i], Integer.toString(i), nombreCategoria) ;
+				if(i==0) {
+					System.out.println(nombresSubCategorias[i].getNombrePadre());
+				}
+				System.out.println(nombresSubCategorias[i].getNombreSubCat());
+			}
+			catch (Exception ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+	
+	}
+}

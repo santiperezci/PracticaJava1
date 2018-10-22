@@ -1,0 +1,23 @@
+
+public class subCategorias {
+	private String idSubCat,nombreSubCategoria, nombrePadre;
+	Producto [] nombresProductos;
+	public subCategorias(String nombre, String id, String papi) {
+		
+		nombreSubCategoria=nombre;
+		idSubCat=id;
+		nombrePadre=papi;
+	}
+	public String getNombreSubCat() {
+		return nombreSubCategoria;
+	}
+	public String getIdCat() {
+		return idSubCat;
+	}
+	public String getNombrePadre() {
+		return nombrePadre;
+	}
+	public void setNombresProductos(String [] nombresProds) {
+		System.arraycopy(nombresProds,0,nombresProductos,0,nombresProds.length);
+	}
+}

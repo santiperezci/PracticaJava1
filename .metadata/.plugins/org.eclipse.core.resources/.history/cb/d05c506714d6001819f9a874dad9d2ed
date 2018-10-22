@@ -1,0 +1,12 @@
+import java.io.FileReader;
+import java.util.Properties;
+
+public class Producto {
+	//public static void main (String[] arg){
+		String nombreProducto ,categoria, subCategoria;
+		float precio;
+		
+		
+
+	//}
+}
